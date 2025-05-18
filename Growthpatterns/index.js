@@ -23,7 +23,9 @@ let layersPerFrame; // How many new layers to add each frame (randomized)
 let pointsPerSegment = 20; // Number of vertices to draw each spiral segment (smoothness)
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    const canvasWidth = window.innerWidth * 0.9;
+    const canvasHeight = window.innerHeight * 0.9;
+    createCanvas(canvasWidth, canvasHeight);
     umboX = width / 2; // Position the umbo
     umboY = height / 2;
     angleMode(DEGREES); // Use degrees for angles in p5.js functions like arc, rotate

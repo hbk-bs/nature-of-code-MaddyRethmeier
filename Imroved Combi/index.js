@@ -22,7 +22,9 @@ let noiseMagnitudeFactor = 0.1; // How strong the Perlin noise deformation is (a
 let noiseSmoothness = 0.05; // How smooth/detailed the Perlin noise along the edge is
 let pauseCouner = 0
 function setup() {
-		createCanvas(windowWidth, windowHeight);
+	const canvasWidth = window.innerWidth * 0.9;
+    const canvasHeight = window.innerHeight * 0.9;
+    createCanvas(canvasWidth, canvasHeight);
 		umboX = width / 3;
 		umboY = height / 3;
 		angleMode(DEGREES); // Using degrees for angle inputs

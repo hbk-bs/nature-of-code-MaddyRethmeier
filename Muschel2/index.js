@@ -24,7 +24,9 @@ let umboX, umboY;
         let ridgeHeight = 2;
 
         function setup() {
-            createCanvas(windowWidth, windowHeight);
+            const canvasWidth = window.innerWidth * 0.9;
+    const canvasHeight = window.innerHeight * 0.9;
+    createCanvas(canvasWidth, canvasHeight);
             umboX = width / 3;
             umboY = height / 3;
             angleMode(DEGREES);

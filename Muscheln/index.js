@@ -14,7 +14,9 @@ const oysterColorsEnd = [220, 10, 80];
 let layersPerFrame;
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    const canvasWidth = window.innerWidth * 0.9;
+    const canvasHeight = window.innerHeight * 0.9;
+    createCanvas(canvasWidth, canvasHeight);
     umboX = width / 3;
     umboY = height / 3;
     angleMode(DEGREES);
