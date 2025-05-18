@@ -1,0 +1,177 @@
+/* styles.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cleaner, modern font */
+    margin: 0;
+    background-color: #f0f2f5; /* Slightly softer background */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top to see content sooner */
+    min-height: 100vh;
+    padding-top: 20px; /* Add some space at the top */
+    padding-bottom: 20px; /* Add some space at the bottom */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Stretch items to fill width */
+    gap: 30px; /* Increased spacing between sections */
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px; /* Slightly larger radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Max width for content */
+    max-width: 900px; /* Control max width for larger screens */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px; /* More space below main title */
+    color: #333;
+    font-size: 2.5em;
+}
+
+h2 {
+    text-align: left; /* Align section titles to the left */
+    margin-top: 10px; /* Add some space above h2 if it's the first element in a card */
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 1.8em;
+    border-bottom: 2px solid #e0e0e0; /* Subtle separator */
+    padding-bottom: 10px;
+}
+
+/* Card style for content sections (Natural Phenomena, Code Explanation, etc.) */
+.content-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Softer shadow */
+    padding: 25px;
+    margin-bottom: 20px; /* Consistent spacing with sketch-previews */
+}
+
+/* Styling for images under "Natural Phenomena" if wrapped in a content-card */
+.content-card .natural-image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.content-card .natural-image-gallery img {
+    width: 100%;
+    max-width: 200px; /* Adjust as needed */
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    object-fit: cover; /* Ensure images fill their space nicely */
+}
+/* If images are not in a gallery div but direct children of content-card: */
+.content-card > img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto 15px auto; /* Center and space out images */
+    border: 1px solid #eee;
+}
+
+
+/* Sketch Preview Styling (mostly from your existing, with minor tweaks) */
+.sketch-preview {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background-color: white;
+    /* width: 300px; /* You can set a fixed width or let flexbox handle it */
+    display: flex; /* To align title properly if image height varies */
+    flex-direction: column;
+}
+
+.sketch-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.sketch-preview a {
+    display: flex; /* Make link fill the preview */
+    flex-direction: column; /* Stack image and title */
+    text-decoration: none;
+    color: inherit;
+    height: 100%; /* Ensure link takes full height */
+}
+
+.sketch-preview img {
+    width: 100%;
+    height: auto; /* Keep aspect ratio */
+    /* Consider a fixed height for previews if images vary a lot:
+    height: 200px;
+    object-fit: cover; */
+    display: block;
+}
+
+.sketch-title {
+    padding: 12px 15px;
+    text-align: center;
+    background-color: #f9f9f9; /* Subtle background for title area */
+    border-top: 1px solid #eee;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Styling for "The most crucial Part of the Code" section */
+/* Assuming the <li> is wrapped in a .content-card along with its preceding h2 */
+.content-card ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove default padding */
+    margin-bottom: 20px;
+}
+
+.content-card ul:last-child {
+    margin-bottom: 0;
+}
+
+/* The <p> tags inside your <ul> that act as titles for code blocks */
+.content-card ul p {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.content-card pre {
+    background-color: #2d2d2d; /* Dark background for code */
+    color: #f8f8f2; /* Light text for code */
+    padding: 15px;
+    border-radius: 6px;
+    overflow-x: auto; /* Allow horizontal scrolling for long lines */
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-top: 0; /* Remove any top margin if p already has bottom margin */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* If you have multiple sketch previews in a row, you might want a container */
+.sketch-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Allow previews to wrap to next line */
+    gap: 20px; /* Space between previews */
+    justify-content: center; /* Center previews if they don't fill the row */
+}
+/* Add this class to the divs that contain your .sketch-preview items */
+/* e.g., <div class="sketch-gallery"> ... <div class="sketch-preview">...</div> ... </div> */
+
+/* Styles for the misplaced <li>, assuming it's within a .content-card */
+.content-card > li {
+    list-style-type: none; /* Hides the bullet if it's a direct child */
+}
+
+/* General paragraph styling if needed */
+p {
+    line-height: 1.6;
+    color: #555;
+}
