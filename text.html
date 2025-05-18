@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyster Shell Growth Simulation - Enhanced</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column; /* Arrange items vertically */
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4; /* Light gray background */
+            font-family: sans-serif; /* Use a readable sans-serif font */
+            padding: 20px; /* Add some padding around the content */
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+        h1 {
+            color: #333; /* Dark gray heading text */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+        ul {
+            list-style: none; /* Remove bullet points */
+            padding: 0;
+            margin-bottom: 15px; /* Space between list items */
+            width: 80%; /* Limit the width of the lists */
+            max-width: 600px; /* Set a maximum width */
+            background-color: #fff; /* White background for list items */
+            border-radius: 8px; /* Rounded corners for the list items */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        ul > p {
+            font-weight: bold; /* Make the introductory text bold */
+            color: #555; /* Slightly lighter gray for the intro */
+            padding: 15px; /* Padding inside the intro paragraph */
+            margin-bottom: 5px; /* Small space below the intro */
+            border-bottom: 1px solid #eee; /* Light separator line */
+            border-top-left-radius: 8px; /* Match rounded corners */
+            border-top-right-radius: 8px;
+        }
+        ul li {
+            padding: 15px;
+            color: #666; /* Medium gray text for the code snippets */
+            line-height: 1.5; /* Improve readability of code */
+            white-space: pre-wrap; /* Preserve whitespace and line breaks */
+            font-family: monospace; /* Use a monospace font for code */
+            background-color: #f9f9f9; /* Light gray background for code blocks */
+            border-bottom: 1px solid #eee; /* Separator between code snippets */
+        }
+        ul li:last-child {
+            border-bottom-left-radius: 8px; /* Match rounded corners */
+            border-bottom-right-radius: 8px;
+            border-bottom: none; /* Remove border on the last item */
+        }
+        .goback {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+    font-size: 1.23em;
+}
+    </style>
+    <script src="index.js"></script> 
+    <a class="goback" href="index.html">⬅︎</a>
+</head>
+<body>
+   
+    <h1>The most crucial parts of the Code</h1>
+
+    <ul>
+        <p>1. The base radius</p>
+        <li><code>let baseRadiusVariation = random(1 - config.radiusVariation, 1 + config.radiusVariation);
+            let r_base = config.initialRadius * pow(config.growthRate, layerIndex) * baseRadiusVariation;</code></li>
+    </ul>
+    <ul>
+        <p>2. The stroke properties and shape generation</p>
+        <li><code>let thickness = random(config.strokeWeightMin, config.strokeWeightMax);
+            strokeWeight(thickness);
+            stroke(hue(interColor), saturation(interColor), brightness(interColor), config.alpha);</code></li>
+        <li><code>let currentNoiseMagnitude = r_base * config.noiseMagnitudeFactor * lerp(0.5, 1.5, t_norm);
+
+            beginShape();
+            vertex(umboX, umboY)
+            
+            for (let ang = startAngle; ang <= endAngle; ang += config.angleStep) {
+                let ang_norm_across_arc = map(ang, startAngle, endAngle, 0, 1); 
+            
+                let lobeDeformation = sin(ang_norm_across_arc * config.numLobesOnEdge * 180) * currentNoiseMagnitude * 0.5; 
+                let perlinDeformation = (noise(ang_norm_across_arc * 5, layerIndex * config.noiseSmoothness) - 0.5) * currentNoiseMagnitude;
+            
+                let totalDeformation = lobeDeformation + perlinDeformation;
+                let radiusWithDeformation = r_base + totalDeformation;
+            
+                let x = umboX + radiusWithDeformation * config.shellWidthFactor * cos(ang);
+                let y = umboY + radiusWithDeformation * sin(ang);
+            
+                vertex(x, y);
+            }
+            endShape(CLOSE);</code></li>
+    </ul>
+    <ul>
+        <p>3. The angle calculation</p>
+        <li><code>let startAngle = config.angleOffset - config.arcAperture / 2;
+            let endAngle = config.angleOffset + config.arcAperture / 2;</code></li>
+    </ul>
+</body>
+</html>
