@@ -1,16 +1,16 @@
 // --- Umbo and Growth Parameters ---
 let umboX, umboY; // Starting point (umbo)
 let initialRadius = 30; // Initial size of the first growth layer
-let growthRate = 1.006; // How much the radius multiplies by for each new layer (controls spacing)
-let segmentAngle = 95;  // Central angle (in degrees) around which segments are drawn
-let numLayers = 500;    // Total number of growth layers
+let growthRate = 1.05; // How much the radius multiplies by for each new layer (controls spacing)
+let segmentAngle = 65;  // Central angle (in degrees) around which segments are drawn
+let numLayers = 50;    // Total number of growth layers
 let currentLayer = 0;   // Tracks how many layers have been drawn
 
 // --- Segment Shape Parameters ---
-let arcLengthDeg = 200; // Angular width of each growth segment (in degrees)
-let radiusVariationFactor = 0.03; // How much radius can vary randomly (e.g., 0.05 for 5%)
-let shellWidthFactor = 0.6; // Makes segments wider (if >1) or narrower (if <1) than they are "tall"
-let segmentSpiralTightness = 0.005; // Controls the curvature of individual segments. 
+let arcLengthDeg = 250; // Angular width of each growth segment (in degrees)
+let radiusVariationFactor = 3; // How much radius can vary randomly (e.g., 0.05 for 5%)
+let shellWidthFactor = 0.7; // Makes segments wider (if >1) or narrower (if <1) than they are "tall"
+let segmentSpiralTightness = 0.07; // Controls the curvature of individual segments. 
                                  // 0 = circular arc, small positive = gentle spiral.
 
 // --- Color Parameters ---
@@ -24,8 +24,8 @@ let pointsPerSegment = 20; // Number of vertices to draw each spiral segment (sm
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    umboX = width / 3; // Position the umbo
-    umboY = height / 2.5;
+    umboX = width / 2; // Position the umbo
+    umboY = height / 2;
     angleMode(DEGREES); // Use degrees for angles in p5.js functions like arc, rotate
     noFill();           // Segments will be lines, not filled shapes
     colorMode(HSB, 360, 100, 100, 1); // HSB color mode for easier interpolation
@@ -125,8 +125,8 @@ function drawSpiralGrowthSegment(R_center, centerAngleDeg, segmentArcLengthDeg, 
     stroke(strokeCol);
     strokeWeight(weight);
     
-    const startAngleDeg = centerAngleDeg - segmentArcLengthDeg / 2;
-    const endAngleDeg = centerAngleDeg + segmentArcLengthDeg / 2;
+    const startAngleDeg = centerAngleDeg - segmentArcLengthDeg / 6;
+    const endAngleDeg = centerAngleDeg + segmentArcLengthDeg / 1;
     const centerAngleRad = radians(centerAngleDeg);
 
     beginShape();
