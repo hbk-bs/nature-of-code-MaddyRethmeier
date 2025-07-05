@@ -1,3 +1,10 @@
+While on excursion I focused on the oyster shells, for my project. 
+My goal was to create a code, that creates naturalistic shell patterns. 
+I was fascinated by the growthrings I could see on the sells and the different variations and patterns that could be found.
+My code is able to recreate the patterns and to create ever changing shells. 
+Sadly I can't seem to get rid of the outer two straight lines that define the angle of growth and the outer boarder. Therefore the shells do not look completly natural.   
+
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/fZw3wUis)
 # digicom 2025 Excursion Nature of Code
 
