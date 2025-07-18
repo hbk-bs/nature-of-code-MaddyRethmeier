@@ -147,49 +147,52 @@
                 <div class="sketch-title">Tree Growth Rings</div>
             </a>
         </div>
-        <div id="backlink">
+        <div id="backlink-recipe">
             <style>
-                #backlink {
-                    --color-accent: hsl(198, 100%, 50%);
+                /* No specific Google Font import needed for generic sans-serif */
+        
+                #backlink-recipe {
+                    --color-accent: #28325c; /* Matches hover color of buttons */
                     position: absolute;
                     top: 8px;
                     right: 8px;
-                    border: 1px dashed black;
-                    background-color: white;
+                    border: 1px dashed #28325c; /* Matches border color */
+                    background-color: #415295; /* Matches button background */
                     padding: 8px;
                     cursor: pointer;
-                    color: black;
+                    color: white; /* Text color */
                     font-size: 0.8rem;
                     font-weight: bold;
                     transition: all 0.3s ease;
                     transform: rotate(-2deg) scale(0.9);
                     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-                    a {
-                        text-decoration: none;
-                        color: black;
-                        color: inherit;
-                        text-decoration: underline;
-                        background-image: linear-gradient(to right,
-                                var(--color-accent) 0%,
-                                var(--color-accent) 100%);
-                        background-size: 0% 100%;
-                        background-position: left center;
-                        background-repeat: no-repeat;
-                        transition: background-size 0.2s ease-in-out;
-                        padding: 0.5rem;
-                    }
-                    a:hover {
-                        background-size: 100% 100%;
-                        color: white;
-                    }
-    
+                    font-family: sans-serif;
+                    z-index: 10;
                 }
-                #backlink:hover {
+                #backlink-recipe:hover {
                     transform: rotate(2deg) scale(1);
                 }
+                #backlink-recipe a {
+                    text-decoration: none;
+                    color: inherit;
+                    background-image: linear-gradient(to right,
+                                        var(--color-accent) 0%,
+                                        var(--color-accent) 100%);
+                    background-size: 0% 100%;
+                    background-position: left center;
+                    background-repeat: no-repeat;
+                    transition: background-size 0.2s ease-in-out;
+                    padding: 0.5rem;
+                    display: inline-block;
+                }
+                #backlink-recipe a:hover {
+                    background-size: 100% 100%;
+                    color: white;
+                }
             </style>
-            <a href="https://rundgang2025.qawsed.site">Back to the Rundgang 2025</a>
+            <a href="https://hbk-bs.github.io/documentation-2025-MaddyRethmeier/">Back to Documentation</a>
         </div>
+        
     </main>
 </body>
 </html>
