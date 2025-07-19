@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oyster Shell Growth Simulations Gallery</title>
-    <meta name="theme-color" content="#415295">
     <style>
         body {
             font-family: sans-serif;
             margin: 0;
             background-color: #f4f4f4;
+            /* Removed flex properties from body */
             min-height: 100vh;
-            padding-top: 50px; /* Added padding-top to account for fixed backlink */
         }
         main {
             display: flex;
@@ -23,8 +22,8 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             max-width: 90%;
-            margin: 20px auto;
-            box-sizing: border-box;
+            margin: 20px auto; /* Center the main content and add some margin */
+            box-sizing: border-box; /* Include padding in the width calculation */
         }
         h1 {
             text-align: center;
@@ -64,10 +63,10 @@
             justify-content: center;
             gap: 10px;
             margin-bottom: 20px;
-            max-width: 100%;
+            max-width: 100%; /* Adjust max-width for better mobile display within main */
         }
         .image-container img {
-            width: 100%;
+            width: 100%; /* Make images take full width on small screens */
             height: auto;
             display: block;
             border-radius: 8px;
@@ -78,60 +77,46 @@
 
         @media (min-width: 600px) {
             .image-container {
-                max-width: 60%;
+                max-width: 60%; /* Adjust max-width for larger screens */
             }
             .image-container img {
-                max-width: calc(50% - 5px);
+                max-width: calc(50% - 5px); /* Two images per row with gap */
             }
         }
 
-        /* Styles for the backlink as a header - MODIFIED */
+        /* Styles for the backlink as a header */
         #backlink-recipe {
             --color-accent: #28325c;
-            width: 100%;
+            width: 100%; /* Take full width of its container */
             background-color: #415295;
-            padding: 10px 0;
+            padding: 10px 0; /* Add vertical padding */
             color: white;
-            font-size: 1rem;
+            font-size: 1rem; /* Slightly larger font for header */
             font-weight: bold;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            box-sizing: border-box;
-            position: fixed; /* Changed to fixed */
-            top: 0; /* Pinned to top */
-            left: 0; /* Pinned to left */
-            transform: none; /* Ensure no unwanted transforms */
-            z-index: 1000; /* Ensure it's on top */
-            border-radius: 0; /* Remove rounded corners for fixed header */
-            margin-bottom: 0; /* Remove margin-bottom */
+            text-align: center; /* Center the text */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            margin-bottom: 20px; /* Space between the header and main content */
+            border-radius: 8px 8px 0 0; /* Rounded top corners */
+            box-sizing: border-box; /* Include padding in width */
         }
         #backlink-recipe a {
             text-decoration: none;
             color: inherit;
-            display: inline-block;
-            padding: 0 15px;
+            display: inline-block; /* Allow padding and sizing */
+            padding: 0 15px; /* Add horizontal padding to the link text */
             transition: background-color 0.3s ease;
         }
         #backlink-recipe a:hover {
-            background-color: var(--color-accent);
-        }
-        @media (max-width: 768px) {
-            #backlink-recipe {
-                font-size: 1.1rem;
-                padding: 12px 0;
-            }
-            body {
-                padding-top: 60px; /* Adjust padding for smaller screens to match natureofcode.html */
-            }
+            background-color: var(--color-accent); /* Highlight on hover */
         }
     </style>
 </head>
 <body>
-    <div id="backlink-recipe">
-        <a href="https://hbk-bs.github.io/documentation-2025-MaddyRethmeier/index.html#nature-of-code-panel">Back to Documentation</a>
-    </div>
-
     <main>
+        <div id="backlink-recipe">
+            <a href="https://hbk-bs.github.io/documentation-2025-MaddyRethmeier/index.html#nature-of-code-panel">Back to Documentation</a>
+        </div>
+
         <h1>Oyster Shell Growth Simulations</h1>
         <h2>Natural Phenomena</h2>
         <div class="image-container">
